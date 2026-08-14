@@ -26,7 +26,7 @@ pnpm --filter dsh-desktop dist:mac
 
 Windows 生成 NSIS 安装器，Linux 生成 AppImage 和 Debian 包，macOS 生成 DMG 与 ZIP；产物位于 `apps/desktop/release/installers`。每条命令都会暂存 `@deepseek-ai/dsh` 的生产依赖闭包，不会复制 Web 服务实现。
 
-仓库中的 `build/icon.png` 是从 Web favicon 生成的占位图标。公开发布前应替换为审核过的 1024×1024 品牌资源。正式分发还需要平台签名：Windows 使用 Authenticode，macOS 使用 Apple Developer ID 并完成公证，Linux 遵循分发渠道的签名策略。
+仓库中的 `build/icon.png` 是从 Web favicon 生成的 1024×1024 DeepSeek 标志。正式分发还需要平台签名：Windows 使用 Authenticode，macOS 使用 Apple Developer ID 并完成公证，Linux 遵循分发渠道的签名策略。
 
 ## 安全
 

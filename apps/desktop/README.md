@@ -26,7 +26,7 @@ pnpm --filter dsh-desktop dist:mac
 
 Windows emits an NSIS installer, Linux emits AppImage and Debian packages, and macOS emits DMG and ZIP artifacts under `apps/desktop/release/installers`. Each command stages the production dependency closure for `@deepseek-ai/dsh`; it does not duplicate the Web server implementation.
 
-The checked-in `build/icon.png` is a placeholder derived from the Web favicon. Replace it with a reviewed 1024×1024 brand asset before a public release. Production distribution also requires platform signing: Authenticode on Windows, an Apple Developer ID plus notarization on macOS, and the distributor's chosen signing policy on Linux.
+The checked-in `build/icon.png` is the 1024×1024 DeepSeek mark derived from the Web favicon. Production distribution also requires platform signing: Authenticode on Windows, an Apple Developer ID plus notarization on macOS, and the distributor's chosen signing policy on Linux.
 
 ## Security
 
