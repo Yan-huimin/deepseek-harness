@@ -1,0 +1,34 @@
+appId: ai.deepseek.dsh
+productName: DeepSeek Harness
+asar: true
+directories:
+  output: release/installers
+files:
+  - dist/**
+  - preload.cjs
+  - package.json
+extraResources:
+  - from: release/server
+    to: server
+  - from: build/icon.png
+    to: icon.png
+artifactName: ${productName}-${version}-${os}-${arch}.${ext}
+win:
+  target:
+    - nsis
+  icon: build/icon.png
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Development
+  icon: build/icon.png
+mac:
+  target:
+    - dmg
+    - zip
+  category: public.app-category.developer-tools
+  icon: build/icon.png

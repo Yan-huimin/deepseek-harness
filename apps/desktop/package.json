@@ -1,0 +1,40 @@
+{
+  "name": "dsh-desktop",
+  "version": "0.1.0-rc.5",
+  "description": "Secure Electron shell for the DeepSeek Harness Web application",
+  "author": "DeepSeek AI",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+    "directory": "apps/desktop"
+  },
+  "type": "module",
+  "main": "dist/main.js",
+  "files": [
+    "dist",
+    "build",
+    "preload.cjs",
+    "electron-builder.yml"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "stage:server": "cross-env CI=true pnpm --config.ignore-scripts=true --config.inject-workspace-packages=true --filter @deepseek-ai/dsh deploy --prod --force release/server",
+    "desktop": "pnpm run build && electron dist/main.js",
+    "dist": "pnpm run build && pnpm run stage:server && electron-builder",
+    "dist:win": "pnpm run build && pnpm run stage:server && electron-builder --win",
+    "dist:linux": "pnpm run build && pnpm run stage:server && electron-builder --linux",
+    "dist:mac": "pnpm run build && pnpm run stage:server && electron-builder --mac"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.0",
+    "cross-env": "^10.0.0",
+    "electron": "43.2.0",
+    "electron-builder": "26.15.6",
+    "tsdown": "^0.22.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  }
+}
